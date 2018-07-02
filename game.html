@@ -1,0 +1,1742 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>In Security</title>
+</head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.1/pixi.min.js"></script>
+<body>
+  <script type="text/javascript">
+    let type = "WebGL"
+    if(!PIXI.utils.isWebGLSupported()){
+      type = "canvas"
+    }
+
+    PIXI.utils.sayHello(type)
+
+      
+
+     //Create a Pixi Application
+let app = new PIXI.Application({ 
+    width: 1200, 
+    height:800,                       
+    antialias: true, 
+    transparent: true, 
+    resolution: 1,
+    
+  }
+);
+      
+   
+
+//Add the canvas that Pixi automatically created for you to the HTML document
+document.body.appendChild(app.view);
+      
+let TextureCache = PIXI.utils.TextureCache;
+let Sprite = PIXI.Sprite;
+let Text = PIXI.Text,
+    Container = PIXI.Container,
+    TextStyle = PIXI.TextStyle;
+      
+let bg, police,police3,
+    op= new Container(),
+    s17 = new Container(),
+    s1= new Container(),    
+    s2 = new Container(),   
+    s3 = new Container(),
+    s4 = new Container(),
+    s5 = new Container(),
+    s6 = new Container(),
+    s7 = new Container(),
+    s8 = new Container(),
+    s9 = new Container(),
+    s10 =new Container(),
+    s11= new Container(),
+    s12= new Container(),
+    s13 =new Container(),
+    s14= new Container(),
+    s15 =new Container(),
+    s16 =new Container(),
+    q1 =new Container(),
+    q2=new Container(),
+    bot=new Container(),
+    state;          
+
+    c = PIXI.Sprite.fromImage('images/Loading.png');
+            c.width=1100;
+            c.height=700;
+            c.x=150;
+            app.stage.addChild(c);     
+      
+           
+      
+PIXI.loader
+  .add("images/S1.json")
+  .load(setup)
+  
+     
+
+function setup(){
+    
+            app.stage.addChild(op);
+            
+            let bgTexture = TextureCache["Op.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            op.addChild(bg);
+
+        
+            let arrow = PIXI.Sprite.fromImage('images/Get.png');
+            arrow.height=49;
+            arrow.width=151;
+
+            arrow.y=422;
+            arrow.x=825;
+    
+    
+            arrow.interactive = true;
+
+            // Shows hand cursor
+            arrow.buttonMode = true;
+
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickone);
+            op.addChild(arrow);    
+            //op.visible= false;
+    
+            app.stage.addChild(s17);
+            
+            bg=PIXI.Sprite.fromImage('images/computer-screen.png');
+            bg.width=1050;
+            
+            bg.height=700;
+            bg.x=150;
+            s17.addChild(bg);
+        
+          
+            let police3=PIXI.Sprite.fromImage('');
+            police3.height=400;
+            police3.width=250;
+
+            police3.y = 100;
+            police3.x=575;
+            s17.addChild(police3);
+    
+    
+            
+    
+            let style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "Black"
+            });
+            let message3 = new Text("Top Secret Message...:\n\n\nWelcome fellow players, \nAn IT firm has been attacked by some mischievous organization \nand all the functioning has been affected and the company is under the threat of losing its sensitive Data. \nAs a player of this game, the manager has high expectations from you to save \nthe company from the potential losses and also restore the company back to its original functioning. \nYou have to clear different levels to restore different functionalities of the company \nand you only have 3 attempts to do so. \nAlso, if in case you fail to clear the quiz from level 1, \nyour company will might be attacked by some additional viruses since you failed to resolve that \nvulnerability. \nThe future of the company belongs to you now.. \nMake sure that you go through every definition very carefully and answer Quiz efficiently….\nGood Luck Players…  \n ", style);
+            message3.x = 200;
+            message3.y = 150;
+            s17.addChild(message3);
+    
+            arrow = PIXI.Sprite.fromImage('images/StartBTN.png');
+            arrow.height=100;
+            arrow.width=140;
+
+            arrow.y=550;
+            arrow.x=1000;
+    
+    
+            arrow.interactive = true;
+
+            // Shows hand cursor
+            arrow.buttonMode = true;
+
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickintro);
+
+            s17.addChild(arrow);    
+            
+            
+            s17.visible=false;
+      
+    
+            app.stage.addChild(s1);
+            
+            
+            bgTexture = TextureCache["Scene 02.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            s1.addChild(bg);
+             var bar = new PIXI.Graphics();
+                        bar.beginFill(0x00000, 0.6);
+                        bar.drawRect(0, 0, 1100 , 50);
+                        bar.endFill(0x000000,1.0);
+            
+            bar.y=600;
+            bar.x=150;
+            s1.addChild(bar);
+            let style1 = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "White"
+            });
+            message = new Text("Last Night", style1);
+            message.x = 620;
+            message.y = 610;
+            s1.addChild(message);
+            
+            
+        
+            arrow = PIXI.Sprite.fromImage('images/arrow w.png');
+            arrow.height=60;
+            arrow.width=70;
+
+            arrow.y=600;
+            arrow.x=950;
+    
+    
+            arrow.interactive = true;
+
+            // Shows hand cursor
+            arrow.buttonMode = true;
+
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClicktwo);
+
+            s1.addChild(arrow);    
+            
+            s1.visible=false;
+            
+           
+            app.stage.addChild(s2);
+            
+            bg = PIXI.Sprite.fromImage('images/door 03.png');
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            s2.addChild(bg);
+        
+          
+            police = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Policeman-06.png"]
+            );
+            police.height=500;
+            police.width=300;
+
+            police.y = 150;
+            police.x=175;
+            s2.addChild(police);
+    
+    
+            diag = PIXI.Sprite.fromImage('images/diag blue.png'
+            );
+           
+            diag.height=150;
+            diag.width=600;
+
+            diag.y=500;
+            diag.x=400;
+            s2.addChild(diag);
+    
+    
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "RED"
+            });
+            message = new Text("[Policeman Jake]:\nThis area is out of bounds, we suspect that the DDOS\nattack happened from this office. We  are waiting for our\ncyber expert to investigate.", style);
+            message.x = 440;
+            message.y = 520;
+            s2.addChild(message);
+            
+    
+            
+            arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=50;
+            arrow.width=60;
+
+            arrow.y=600;
+            arrow.x=930;
+    
+    
+            arrow.interactive = true;
+
+            // Shows hand cursor
+            arrow.buttonMode = true;
+
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickthree);
+
+            s2.addChild(arrow);    
+            
+            s2.visible=false;
+            
+    
+            
+    
+            
+            app.stage.addChild(s3);
+            
+            bg = PIXI.Sprite.fromImage('images/door 03.png');
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            s3.addChild(bg);
+        
+          
+            police3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Policeman-05.png"]
+            );
+            police3.height=500;
+            police3.width=300;
+
+            police3.y = 150;
+            police3.x=175;
+            s3.addChild(police3);
+    
+    
+             diag3 = PIXI.Sprite.fromImage('images/diag blue.png'
+            );
+           
+            diag3.height=200;
+            diag3.width=600;
+
+            diag3.y=500;
+            diag3.x=400;
+            s3.addChild(diag3);
+    
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "BLUE"
+            });
+            message3 = new Text("[Policeman Jake]:\nOhh you’re our young detective. This is John’s office where \nwe believe the attack happened. I don't have the \nexpertise in this subject so we have to rely on your knowledge.\nJohn is here to talk to you. Let's go inside the office", style);
+            message3.x = 440;
+            message3.y = 540;
+            s3.addChild(message3);
+    
+            arrow = PIXI.Sprite.fromImage('images/open door.png');
+            arrow.height=345;
+            arrow.width=162;
+
+            arrow.y=225;
+            arrow.x=1015;
+    
+    
+            arrow.interactive = true;
+
+            // Shows hand cursor
+            arrow.buttonMode = true;
+
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickdoor);
+
+            s3.addChild(arrow);    
+            
+            
+            s3.visible=false;
+    
+            app.stage.addChild(s4);
+            
+            bgTexture = TextureCache["Bg1.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            s4.addChild(bg);
+        
+          
+            police3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Wk2.png"]
+            );
+            police3.height=500;
+            police3.width=300;
+
+            police3.y = 150;
+            police3.x=905;
+            s4.addChild(police3);
+    
+    
+             diag3 = PIXI.Sprite.fromImage('images/diag blue.png'
+            );
+           
+            diag3.height=200;
+            diag3.width=600;
+
+            diag3.y=400;
+            diag3.x=325;
+            s4.addChild(diag3);
+    
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "BLUE"
+            });
+            message3 = new Text("[Worker John]:\nHello. Yes I am John.\nI can't be hacked.My password is very strong.\nI used my name and my date of birth.\nWhat? That’s a weak password?\nWait. I got hacked and a DDOS initiated from my system?!", style);
+            message3.x = 345;
+            message3.y = 440;
+            s4.addChild(message3);
+    
+            arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=40;
+            arrow.width=30;
+
+            arrow.y=550;
+            arrow.x=875;
+    
+    
+            arrow.interactive = true;
+
+            // Shows hand cursor
+            arrow.buttonMode = true;
+
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickfive);
+
+            s4.addChild(arrow);    
+            
+            
+            s4.visible=false;
+    
+            app.stage.addChild(s5);
+            
+            bgTexture = TextureCache["Bg1.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            s5.addChild(bg);
+        
+          
+            police3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Policeman-03.png"]
+            );
+            police3.height=500;
+            police3.width=300;
+
+            police3.y = 150;
+            police3.x=905;
+            s5.addChild(police3);
+    
+    
+            diag3 = new Sprite(
+            PIXI.loader.resources["images/S1.json"].textures["Diag.png"]
+            );
+            diag3.height=200;
+            diag3.width=600;
+
+            diag3.y=400;
+            diag3.x=325;
+            s5.addChild(diag3);
+    
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "BLUE"
+            });
+            message3 = new Text("[Policeman Jake]:\nWell this explains the need for us to have stronger passwords. \nWe need to keep our stuff safe. Having strong passwords using \nnumbers and random alphabets is a good practice.\nWait…I don’t know what a DDOS is, can you explain? \nOhh there’s a laptop in the back? Let’s check it.", style);
+            message3.x = 345;
+            message3.y =440;
+            s5.addChild(message3);
+    
+            arrow = PIXI.Sprite.fromImage('images/laptop.png');
+            arrow.height=100;
+            arrow.width=220;
+
+            arrow.y=307;
+            arrow.x=705;
+    
+    
+            arrow.interactive = true;
+
+            // Shows hand cursor
+            arrow.buttonMode = true;
+
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClicksix);
+
+            s5.addChild(arrow);    
+            
+            
+            s5.visible=false;
+    
+            
+    
+            app.stage.addChild(s6);
+    
+            c = PIXI.Sprite.fromImage('images/computer-screen.png');
+            c.width=1050;
+            c.x=150;
+            c.height=700;
+            s6.addChild(c);
+            
+            bg = PIXI.Sprite.fromImage('images/Botmaster-01.png');
+            bg.width=1000;
+            bg.height=650;
+            bg.x=150;
+            s6.addChild(bg);
+        
+            icon = PIXI.Sprite.fromImage('images/icon.png');
+            icon.height=30;
+            icon.width=30;
+
+            icon.y=430;
+            icon.x=265;
+    
+    
+            icon.interactive = true;
+
+            // Shows hand cursor
+            icon.buttonMode = true;
+
+            // Pointers normalize touch and mouse
+            icon.on('mouseover', onmouseover);
+            icon.on('mouseout',onmouseout);
+
+            s6.addChild(icon);    
+            diag3 =
+            PIXI.Sprite.fromImage('images/info.png');
+            diag3.height=100;
+            diag3.width=700;
+
+            diag3.y=560;
+            diag3.x=290;
+            s6.addChild(diag3);
+    
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 16,
+            fill: "BLUE"
+            });
+            message3 = new Text("A Distributed Denial of Service (DDoS) attack is an attempt to make an online\nservice unavailable by overwhelming it with traffic from multiple sources. They\ntarget a wide variety of important resources, from banks to news websites, and present\na major challenge to making sure people can publish and access important information.", style);
+            message3.x = 325;
+            message3.y = 565;
+            s6.addChild(message3);
+           
+            
+            s6.visible=false;
+    
+            app.stage.addChild(s7);
+            
+            bgTexture = TextureCache["Bg1.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            s7.addChild(bg);
+        
+          
+            police3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Wk1.png"]
+            );
+            police3.height=500;
+            police3.width=300;
+
+            police3.y = 150;
+            police3.x=905;
+            s7.addChild(police3);
+    
+    
+            diag3 = new Sprite(
+            PIXI.loader.resources["images/S1.json"].textures["Diag.png"]
+            );
+            diag3.height=200;
+            diag3.width=600;
+
+            diag3.y=400;
+            diag3.x=325;
+            s7.addChild(diag3);
+    
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "BLUE"
+            });
+            message3 = new Text("[Quizmaster Brian]:\nHi, we should make sure we all learnt about DDOS. \nLet us answer a few questions. ", style);
+            message3.x = 345;
+            message3.y =440;
+            s7.addChild(message3);
+    
+            arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=40;
+            arrow.width=30;
+
+            arrow.y=550;
+            arrow.x=875;
+    
+    
+            arrow.interactive = true;
+
+            // Shows hand cursor
+            arrow.buttonMode = true;
+
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickquiz);
+
+            s7.addChild(arrow);    
+            
+            
+            s7.visible=false;
+            
+            app.stage.addChild(q1);
+            
+    
+            bgTexture = TextureCache["Bg1.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            q1.addChild(bg);
+            
+            diag3 =
+            PIXI.Sprite.fromImage('images/diag grey.png');
+            diag3.height=100;
+            diag3.width=700;
+
+            diag3.y=100;
+            diag3.x=325;
+            q1.addChild(diag3);
+    
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "White"
+            });
+            message3 = new Text("What are the ways to set up a good password?", style);
+            message3.x = 435;
+            message3.y = 130;
+            q1.addChild(message3);
+          
+            
+            diag3 =
+            PIXI.Sprite.fromImage('images/diag black.png');
+            diag3.height=100;
+            diag3.width=450;
+
+            diag3.y=300;
+            diag3.x=200;
+            q1.addChild(diag3);
+    
+              style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "White"
+            });
+            message3 = new Text("Adding your Date of Birth in your password", style);
+            message3.x = 225;
+            message3.y = 325;
+            q1.addChild(message3);
+          
+    
+    
+            diag3 =
+            PIXI.Sprite.fromImage('images/diag black.png');
+            diag3.height=100;
+            diag3.width=450;
+
+            diag3.y=300;
+            diag3.x=700;
+            q1.addChild(diag3);
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "White"
+            });
+            message3 = new Text("Adding your name initials in your password", style);
+            message3.x = 725;
+            message3.y = 325;
+            q1.addChild(message3);
+          
+        
+            
+            diag3 =
+            PIXI.Sprite.fromImage('images/diag black.png');
+            diag3.height=100;
+            diag3.width=450;
+
+            diag3.y=500;
+            diag3.x=200;
+            q1.addChild(diag3);
+    
+
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "White"
+            });
+            message3 = new Text("Reusing passwords from other accounts", style);
+            message3.x = 225;
+            message3.y = 525;
+            q1.addChild(message3);
+    
+            
+            
+            diag3 =
+            PIXI.Sprite.fromImage('images/diag black.png');
+            diag3.height=100;
+            diag3.width=450;
+
+            diag3.y=500;
+            diag3.x=700;
+            
+            diag3.interactive=true;
+    
+            diag3.buttonMode=true;
+            
+            diag3.on('click',onClickquiz2);
+            q1.addChild(diag3);
+    
+    
+             style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "White"
+            });
+            message3 = new Text("Keeping it random with a mixture of characters, \nnumbers and letters.", style);
+            message3.x = 720;
+            message3.y = 525;
+    
+    
+            q1.addChild(message3);
+            
+            q1.visible=false;
+    
+            app.stage.addChild(q2);
+            
+    
+            bgTexture = TextureCache["Bg1.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            q2.addChild(bg);
+            
+            diag3 =
+            PIXI.Sprite.fromImage('images/diag grey.png');
+            diag3.height=100;
+            diag3.width=700;
+
+            diag3.y=100;
+            diag3.x=325;
+            q2.addChild(diag3);
+    
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "White"
+            });
+            message3 = new Text("What is a DDOS attack?", style);
+            message3.x = 435;
+            message3.y = 130;
+            q2.addChild(message3);
+          
+            
+            diag3 =
+            PIXI.Sprite.fromImage('images/diag black.png');
+            diag3.height=150;
+            diag3.width=450;
+
+            diag3.y=300;
+            diag3.x=200;
+            q2.addChild(diag3);
+    
+              style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "White"
+            });
+            message3 = new Text("A Distributed Denial of Service (DDoS) attack \nis an attempt to make an online service \nunavailable by overwhelming it with traffic \nfrom multiple sources.", style);
+            message3.x = 225;
+            message3.y = 325;
+    
+            diag3.interactive=true;
+    
+            diag3.buttonMode=true;
+            
+            diag3.on('click',onClickeight);
+            
+            q2.addChild(message3);    
+          
+    
+    
+            diag3 =
+            PIXI.Sprite.fromImage('images/diag black.png');
+            diag3.height=150;
+            diag3.width=450;
+
+            diag3.y=300;
+            diag3.x=700;
+            q2.addChild(diag3);
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "White"
+            });
+            message3 = new Text("DDOS is a person who operates the command \nand control of botnets for remote \nprocess execution.It is not a \ncommon kind of attack", style);
+            message3.x = 725;
+            message3.y = 325;
+            
+            diag3.interactive=true;
+    
+            diag3.buttonMode=true;
+            
+            diag3.on('click',onClickbotmaster);
+            
+    
+            q2.addChild(message3);
+          
+        
+            
+            diag3 =
+            PIXI.Sprite.fromImage('images/diag black.png');
+            diag3.height=150;
+            diag3.width=450;
+
+            diag3.y=500;
+            diag3.x=200;
+            q2.addChild(diag3);
+    
+
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "White"
+            });
+            message3 = new Text("DDOS is a malicious computer program \nmasquerading itself as useful or otherwise \nnon-malicious.", style);
+            message3.x = 225;
+            message3.y = 525;
+            q2.addChild(message3);
+    
+            
+            
+            diag3 =
+            PIXI.Sprite.fromImage('images/diag black.png');
+            diag3.height=150;
+            diag3.width=450;
+
+            diag3.y=500;
+            diag3.x=700;
+            
+            
+            q2.addChild(diag3);
+    
+    
+             style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "White"
+            });
+            message3 = new Text("DDOS is a type of malware that stands \nalone, replicating itself in order to \nspread to other computers.", style);
+            message3.x = 720;
+            message3.y = 525;
+    
+    
+            q2.addChild(message3);
+    
+            q2.visible=false;
+    
+    
+    
+           /* arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=40;
+            arrow.width=30;
+            arrow.y=550;
+            arrow.x=875;*/
+    
+
+            /*arrow.interactive = true;
+            // Shows hand cursor
+            arrow.buttonMode = true;
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickeight);
+            q1.addChild(arrow);*/  
+
+            
+
+           
+            
+            //q1.visible=false; 
+            
+            
+            
+    
+    
+            app.stage.addChild(s8);
+
+            bgTexture = TextureCache["Bg2.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            s8.addChild(bg);
+        
+    
+            police3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Policeman-01.png"]);
+            police3.height=500;
+            police3.width=300;
+            police3.y = 150;
+            police3.x=905;
+            s8.addChild(police3);
+
+            
+                                                                                  
+            diag3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Diag.png"]);
+            diag3.height=200;
+            diag3.width=600;
+            diag3.y=400;
+            diag3.x=325;
+            s8.addChild(diag3);
+
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "BLUE"
+            });
+            message3 = new Text("Policeman Jake: Good Job solving the answers. We managed to reach this location due to your help. Hmm, this looks like the firm’s server room Let’s find the hacker.\n ", style);
+            message3.x = 345;
+            message3.y =440;
+            s8.addChild(message3);
+
+    
+
+            arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=40;
+            arrow.width=30;
+            arrow.y=550;
+            arrow.x=875;
+            arrow.interactive = true;
+            // Shows hand cursor
+            arrow.buttonMode = true;
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickeight);
+            s8.addChild(arrow);   
+            
+            s8.visible=false;
+
+    
+
+            app.stage.addChild(s9);
+
+            bgTexture = TextureCache["Bg2.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            s8.addChild(bg);
+        
+
+            police3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["WK5.png"]);
+            police3.height=500;
+            police3.width=300;
+            police3.y = 150;
+            police3.x=905;
+            s8.addChild(police3);
+
+    
+            diag3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Diag.png"]);
+            diag3.height=200;
+            diag3.width=600;
+            diag3.y=400;
+            diag3.x=325;
+            s8.addChild(diag3);
+    
+
+
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "BLUE"
+            });
+
+            message3 = new Text("Server Room Head Mike: \nStop! This area is restricted.\nWhat? DDOS? You have an encrypted message? \nLet me call our cryptography expert Jason.\n ", style);
+            message3.x = 345;
+            message3.y =440;
+            s8.addChild(message3);
+
+    
+
+            arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=40;
+            arrow.width=30;
+            arrow.y=550;
+            arrow.x=875;
+    
+            arrow.interactive = true;
+            // Shows hand cursor
+            arrow.buttonMode = true;
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClicknine);
+            s8.addChild(arrow);    
+            s8.visible=false;
+            app.stage.addChild(s9);
+
+            
+
+            bgTexture = TextureCache["Bg2.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            s9.addChild(bg);
+
+            police3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Wk3.png"]);
+            police3.height=500;
+            police3.width=300;
+            police3.y = 150;
+            police3.x=905;
+            s9.addChild(police3);
+
+
+            diag3 = new Sprite(
+            PIXI.loader.resources["images/S1.json"].textures["Diag.png"]);
+            diag3.height=200;
+            diag3.width=600;
+            diag3.y=400;
+            diag3.x=325;
+            s9.addChild(diag3);
+
+
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "BLUE"
+            });
+            message3 = new Text("[Quizmaster Brian]:\n\n ", style);
+            message3.x = 345;
+            message3.y =440;
+            s9.addChild(message3);
+
+    
+            arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=40;
+            arrow.width=30;
+            arrow.y=550;
+            arrow.x=875;
+            arrow.interactive = true;
+            // Shows hand cursor
+
+            arrow.buttonMode = true;
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickten);
+            s9.addChild(arrow);    
+            s9.visible=false;
+
+
+            app.stage.addChild(s10);    
+            bgTexture = TextureCache["Bg2.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            s10.addChild(bg);
+
+        
+            police3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Wk4.png"]);
+            police3.height=500;
+            police3.width=300;
+            police3.y = 150;
+            police3.x=905;
+            s10.addChild(police3);
+
+    
+            diag3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Diag.png"]);
+            diag3.height=200;
+            diag3.width=600;
+            diag3.y=400;
+            diag3.x=325;
+            s10.addChild(diag3);
+
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "BLUE"
+            });
+            message3 = new Text("Cryptography expert Jason: \nHi you need help with An encrypted \nmessage? \nHmm this looks like a Caesar Cipher encryption.\n ", style);
+            message3.x = 345;
+            message3.y =440;
+            s10.addChild(message3);
+
+            arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=40;
+            arrow.width=30;
+            arrow.y=550;
+            arrow.x=875;
+
+            arrow.interactive = true;
+            // Shows hand cursor
+            arrow.buttonMode = true;
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickeleven);
+            s10.addChild(arrow);    
+
+            s10.visible=false;
+
+
+
+            app.stage.addChild(s11);
+
+            
+
+            bgTexture = TextureCache["Bg2.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            s11.addChild(bg);
+          
+
+            police3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Policeman-05.png"]);
+            police3.height=500;
+            police3.width=300;
+            police3.y = 150;
+            police3.x=905;
+            s11.addChild(police3);
+
+    
+            diag3 = new Sprite(
+            PIXI.loader.resources["images/S1.json"].textures["Diag.png"]);
+            diag3.height=200;
+            diag3.width=600;
+            diag3.y=400;
+            diag3.x=325;
+            s11.addChild(diag3);
+
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "BLUE"
+            });
+            message3 = new Text("Policeman Jake: \nI know about Caesar Cipher. It is \na type of substitution cipher in which each letter in \nthe plaintext is 'shifted' a certain number of places \ndown the alphabet. For example, with a shift \nof 1, A would be replaced by B, B would become C, and so on. ", style);
+            message3.x = 345;
+            message3.y =440;
+            s11.addChild(message3);
+
+            arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=40;
+            arrow.width=30;
+            arrow.y=550;
+            arrow.x=875;
+    
+            arrow.interactive = true;
+            // Shows hand cursor
+            arrow.buttonMode = true;
+
+            // Pointers normalize touch and mouse
+
+            arrow.on('click', onClicktwelve);
+
+            s11.addChild(arrow);    
+            
+            s11.visible=false;
+    
+    
+            app.stage.addChild(s13);
+    
+    
+            bgTexture = TextureCache["Bg2.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            s13.addChild(bg);
+
+        
+            police3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Hacker-01.png"]);
+            police3.height=500;
+            police3.width=300;
+            police3.y = 150;
+            police3.x=905;
+            s13.addChild(police3);
+
+
+            diag3 = new Sprite(
+            PIXI.loader.resources["images/S1.json"].textures["Diag.png"]);
+            diag3.height=200;
+            diag3.width=600;
+            diag3.y=400;
+            diag3.x=325;
+            s13.addChild(diag3);
+
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "BLUE"
+            });
+            message3 = new Text("Hacker: Nice try, but you \ncan never unlock the system.\nYou need to decrypt the message which is impossible. \n ", style);
+            message3.x = 345;
+            message3.y =440;
+            s13.addChild(message3);
+
+    
+
+            arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=40;
+            arrow.width=30;
+            arrow.y=550;
+            arrow.x=875;
+
+
+            arrow.interactive = true;
+            // Shows hand cursor
+            arrow.buttonMode = true;
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickforteen);
+            s13.addChild(arrow);    
+
+            s13.visible=false;
+
+
+
+            app.stage.addChild(s14);
+            bgTexture = TextureCache["Bg2.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;   
+            bg.height=700;
+            s14.addChild(bg);
+
+    
+            police3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Hacker-01.png"]        );
+            police3.height=500;
+            police3.width=300;
+            police3.y = 150;
+            police3.x=905;
+            s14.addChild(police3);
+
+    
+            diag3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Diag.png"]);
+            diag3.height=200;
+            diag3.width=600;
+            diag3.y=400;
+            diag3.x=325;
+            s14.addChild(diag3);
+
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "BLUE"
+            });
+            message3 = new Text("Hacker: NOOOOOO!\n ", style);
+            message3.x = 345;
+            message3.y =440;
+            s14.addChild(message3);
+
+
+            arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=40;
+            arrow.width=30;
+            arrow.y=550;    
+            arrow.x=875;
+
+
+            arrow.interactive = true;
+
+            // Shows hand cursor
+            arrow.buttonMode = true;
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickfifteen);
+            s14.addChild(arrow);    
+            
+    
+            
+        
+            s14.visible=false;
+
+    
+
+            app.stage.addChild(s15);
+            bgTexture = TextureCache["Bg2.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            s15.addChild(bg);
+
+    
+            police3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Policeman-01.png"]);
+            police3.height=500;
+            police3.width=300;
+            police3.y = 150;
+            police3.x=905;
+            s15.addChild(police3);
+
+    
+            diag3 = new Sprite(
+            PIXI.loader.resources["images/S1.json"].textures["Diag.png"]
+            );
+            diag3.height=200;
+            diag3.width=600;
+            diag3.y=400;
+            diag3.x=325;
+            s15.addChild(diag3);
+
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "BLUE"
+            });
+
+            message3 = new Text("Policeman Jake: \nGreat Job. We managed to shutdown the \nattack. We are glad you helped us. \n ", style);
+            message3.x = 345;
+            message3.y =440;
+            s15.addChild(message3);
+
+    
+            arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=40;
+            arrow.width=30;
+            arrow.y=550;
+            arrow.x=875;
+    
+
+            arrow.interactive = true;
+            // Shows hand cursor
+            arrow.buttonMode = true;
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClicksixteen);
+            s15.addChild(arrow);  
+
+            
+
+            s15.visible=false;
+    
+    
+     app.stage.addChild(s16);
+            bg = PIXI.Sprite.fromImage('images/computer-screen.png');
+            bg.width=1050;
+            bg.x=150;
+            bg.height=700;
+            s16.addChild(bg);
+
+    
+            police3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures[""]);
+            police3.height=500;
+            police3.width=300;
+            police3.y = 150;
+            police3.x=905;
+            s16.addChild(police3);
+
+    
+            diag3 = new Sprite(
+            PIXI.loader.resources["images/S1.json"].textures[""]
+            );
+            diag3.height=200;
+            diag3.width=600;
+            diag3.y=400;
+            diag3.x=325;
+            s16.addChild(diag3);
+
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "BLUE"
+            });
+
+            message3 = new Text("Message...: \nGreat Job.Mission Accomplished. You have managed \nto save the firm and loads of \npeople from possible data damage.... \n ", style);
+            message3.x = 250;
+            message3.y =240;
+            s16.addChild(message3);
+
+    
+            arrow = PIXI.Sprite.fromImage('');
+            arrow.height=40;
+            arrow.width=30;
+            arrow.y=550;
+            arrow.x=875;
+    
+
+            arrow.interactive = true;
+            // Shows hand cursor
+            arrow.buttonMode = true;
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClicksixteen);
+            s16.addChild(arrow);  
+
+            
+
+            s16.visible=false;
+    
+            
+            //end();
+            
+   }
+          
+     
+      //s2.visible=false;
+      //state = end;
+      function onClickone()
+      {
+          op.visible=false;
+          s17.visible=true;
+      }
+      function onClickintro()
+      {
+          s17.visible=false;
+          s1.visible=true;
+      }
+      function onClicktwo () {
+            s2.visible=true;
+            s1.visible=false;
+      }
+       function onClickthree () {
+            s3.visible=true;
+            s2.visible=false;
+      }
+      
+      
+      function onClickdoor()
+      {
+          
+          
+          bg = PIXI.Sprite.fromImage('images/door 02.png');
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            s3.addChild(bg);
+        
+          
+            police3 = new Sprite(PIXI.loader.resources["images/S1.json"].textures["Policeman-05.png"]
+            );
+            police3.height=500;
+            police3.width=300;
+
+            police3.y = 150;
+            police3.x=175;
+            s3.addChild(police3);
+    
+    
+            diag3= PIXI.Sprite.fromImage('images/diag blue.png'
+            );
+           
+            diag3.height=200;
+            diag3.width=600;
+
+            diag3.y=500;
+            diag3.x=400;
+            s3.addChild(diag3);
+    
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 20,
+            fill: "BLUE"
+            });
+            message3 = new Text("[Policeman Jake]:\nOhh you’re our young detective. This is John’s office where \nwe believe the attack happened. I don't have the \nexpertise in this subject so we have to rely on your knowledge.\nJohn is here to talk to you. Let's go inside the office", style);
+            message3.x = 440;
+            message3.y = 540;
+            s3.addChild(message3);
+          
+          arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=50;
+            arrow.width=60;
+
+            arrow.y=650;
+            arrow.x=905;
+    
+    
+            arrow.interactive = true;
+
+            // Shows hand cursor
+            arrow.buttonMode = true;
+
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickfour);
+
+            s3.addChild(arrow);
+          
+          
+      }
+      function onClickfour () {
+            s4.visible=true;
+            s3.visible=false;
+      }
+    
+      function onClickfive () {
+          s5.visible=true;  
+          s4.visible=false;
+            
+      }
+      
+      function onClicksix () {
+          s6.visible=true;  
+          s5.visible=false;
+            
+      }
+            function onClickseven () {
+          s7.visible=true;  
+          s6.visible=false;
+            
+      }
+      
+      function onClickbotmaster()
+      {     bot.visible=true;
+          var blurFilter1 = new PIXI.filters.BlurFilter();
+            app.stage.addChild(bot);
+            
+            var count=Math.random();
+            bgTexture = TextureCache["Bg1.png"];
+            bg = new Sprite(bgTexture);
+            bg.width=1100;
+            bg.x=150;
+            bg.height=700;
+            bg.filters=[blurFilter1];
+            var blurAmount = Math.cos(count);
+            blurFilter1.blur = 20 * (blurAmount);
+            bot.addChild(bg);
+          
+            diag3 =
+            PIXI.Sprite.fromImage('images/diag grey.png');
+            diag3.height=100;
+            diag3.width=700;
+
+            diag3.y=300;
+            diag3.x=375;
+            
+            diag3.interactive=true;
+    
+            diag3.buttonMode=true;
+            
+            diag3.on('click',onClickquiz2);
+            q1.addChild(diag3);
+          
+            bot.addChild(diag3);
+          
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 16,
+            fill: "BLUE"
+            });
+            message3 = new Text("Incorrect, a person who operates the command and control of botnets for \nremote process execution is called a Botmaster.", style);
+            message3.x = 385;
+            message3.y = 325;
+            bot.addChild(message3);
+          
+            
+            
+      }
+      
+      
+      
+      
+      function onClickquiz()
+      {
+          q1.visible=true;
+          s7.visible=false;
+      }
+      
+      function onClickquiz2()
+      {
+          q2.visible=true;
+          q1.visible=false;
+          bot.visible=false;
+      }
+        function onClickeight () {
+            s8.visible=true;  
+            q2.visible=false;
+        }
+
+
+
+
+
+  function onClicknine () {
+            s9.visible=true;  
+            s8.visible=false;
+
+        }
+
+
+
+
+
+  function onClickten () {
+            s10.visible=true;  
+            s9.visible=false;
+  }
+
+
+
+
+
+  function onClickeleven () {
+            s11.visible=true;  
+            s10.visible=false;
+
+            
+
+      }
+
+
+
+
+
+  function onClicktwelve () {
+            s13.visible=true;  
+            s11.visible=false;
+
+            }
+
+
+
+
+
+  function onClickforteen () {
+            s14.visible=true;  
+            s13.visible=false;
+
+            }
+
+
+
+
+
+  function onClickfifteen () {
+            s15.visible=true;  
+            s14.visible=false;
+
+            }
+
+
+
+
+
+ function onClicksixteen () {
+            s16.visible=true;  
+            s15.visible=false;
+            
+            }
+        
+      function onmouseover () {
+          //s6.visible=true;  
+          //s5.visible=false;
+            arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=40;
+            arrow.width=30;
+
+            arrow.y=750;
+            arrow.x=900;
+    
+    
+            arrow.interactive = true;
+
+            // Shows hand cursor
+            arrow.buttonMode = true;
+
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickseven);
+
+            s6.addChild(arrow);    
+            diag4 =
+            PIXI.Sprite.fromImage('images/info.png');
+            diag4.height=220;
+            diag4.width=200;
+
+            diag4.y=300;
+            diag4.x=215;
+            s6.addChild(diag4);
+          
+          style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 14,
+            fill: "BLUE"
+            });
+            message3 = new Text("A botmaster is a person \nwho operates the command \nand control of botnets \nfor remote process execution.\nThe botmaster will often \nhide his/her identify via \nproxies, TOR and/or \nshells to disguise their IP \nAddress from detection of \ninvestigators and law \nenforcement.", style);
+            message3.x = 220;
+            message3.y = 310;
+            s6.addChild(message3);
+          
+    
+            
+            
+      }
+      
+      function onmouseout()
+      {
+          c = PIXI.Sprite.fromImage('images/computer-screen.png');
+            c.width=1050;
+            c.x=150;
+            c.height=700;
+            s6.addChild(c);
+            
+            bg = PIXI.Sprite.fromImage('images/Botmaster-01.png');
+            bg.width=1000;
+            bg.height=650;
+            bg.x=150;
+            s6.addChild(bg);
+        
+            icon = PIXI.Sprite.fromImage('images/icon.png');
+            icon.height=30;
+            icon.width=30;
+
+            icon.y=430;
+            icon.x=265;
+    
+    
+            icon.interactive = true;
+
+            // Shows hand cursor
+            icon.buttonMode = true;
+
+            // Pointers normalize touch and mouse
+            icon.on('mouseover', onmouseover);
+            icon.on('mouseout',onmouseout);
+
+            s6.addChild(icon);    
+            diag3 =
+            PIXI.Sprite.fromImage('images/info.png');
+            diag3.height=100;
+            diag3.width=700;
+
+            diag3.y=560;
+            diag3.x=290;
+            s6.addChild(diag3);
+    
+    
+            style = new TextStyle({
+            fontFamily: "Futura",
+            fontSize: 16,
+            fill: "BLUE"
+            });
+            message3 = new Text("A Distributed Denial of Service (DDoS) attack is an attempt to make an online\nservice unavailable by overwhelming it with traffic from multiple sources. They\ntarget a wide variety of important resources, from banks to news websites, and present\na major challenge to making sure people can publish and access important information.", style);
+            message3.x = 325;
+            message3.y = 565;
+            s6.addChild(message3);
+          
+          
+            arrow = PIXI.Sprite.fromImage('images/arrow n.png');
+            arrow.height=40;
+            arrow.width=30;
+
+            arrow.y=620;
+            arrow.x=960;
+    
+    
+            arrow.interactive = true;
+
+            // Shows hand cursor
+            arrow.buttonMode = true;
+
+            // Pointers normalize touch and mouse
+            arrow.on('click', onClickseven);
+
+            s6.addChild(arrow);    
+            
+           
+      }
+      
+  </script>
+</body>
+</html>
